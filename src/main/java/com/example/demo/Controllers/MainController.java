@@ -7,12 +7,20 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class MainController {
 
-    //<html xmlns:th="http://www.thymeleaf.org">  - шаблонизатор на странице
-    //Каждый метод обрабатывает определенный URL адрес.
+    /**
+     * Стараться вести JavaDoc. А еще лучше, чтоб код был понятен без комментариев.
+     *
+     *
+     * <html xmlns:th="http://www.thymeleaf.org">  - шаблонизатор на странице
+     *  Каждый метод обрабатывает определенный URL адрес.
+     * @param model
+     * @return
+     */
 
     @GetMapping("/") // Для обработки главной страницы указываем просто "/"
     public String home(Model model) {
-        model.addAttribute("tittle", "Главная страница, толстячок...");
+        model.addAttribute("tittle", "Главная страница");
+        model.addAttribute("second", "Вторая страница");
         return "home"; // "HTML шаблон - при переходе на главную страницу будет вызываться именно он"
     }
 
