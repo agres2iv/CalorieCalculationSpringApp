@@ -1,6 +1,14 @@
 package com.example.demo.Entity;
 
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+
+
 public class Journal {
+
     private int id;
     private String date;
     private Ingestion ingestion;
