@@ -9,6 +9,7 @@ import jakarta.persistence.Id;
 
 public class Journal {
 
+
     private int id;
     private String date;
     private Ingestion ingestion;
