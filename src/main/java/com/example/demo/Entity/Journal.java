@@ -1,21 +1,27 @@
 package com.example.demo.Entity;
 
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 
+@Entity
 public class Journal {
 
-
+@Id
     private int id;
     private String date;
+    @ManyToOne
+    @JoinColumn(name = "ingestion_id")
     private Ingestion ingestion;
+    @ManyToOne
+    @JoinColumn(name = "product_id")
     private Product product;
     private double quantity;
+    @ManyToOne
+    @JoinColumn(name = "portion_id")
     private Portion portion;
+    @ManyToOne
+    @JoinColumn(name = "user_id")
     private Users user;
 
     public int getId() {
