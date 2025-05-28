@@ -2,11 +2,12 @@
 <html xmlns:th="http://www.thymeleaf.org">
 
 <head>
-  <title th:text="${tittle}"/>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title th:text="${Журнал}"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 </head>
 <body>
 <header th:insert="blocks/header.html :: header"></header>
+<a class="p-2 text-dark" href="journal/product-add">Добавить продукт в список</a>
 <p th:text="|Привет пузач, ${second}!|"/>
 </body>
 </html>

@@ -22,6 +22,6 @@ public class JournalController {
         model.addAttribute("allJournals", allJournals);
         model.addAttribute("journal","Журнал");
         return "journal";
-
     }
+
 }

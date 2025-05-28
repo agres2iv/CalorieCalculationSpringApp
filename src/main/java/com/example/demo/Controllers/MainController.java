@@ -22,12 +22,5 @@ public class MainController {
         model.addAttribute("tittle", "Главная страница");
         return "home"; // "HTML шаблон - при переходе на главную страницу будет вызываться именно он"
     }
-
-    @GetMapping("/support")
-    public String about(Model model) {
-        model.addAttribute("support", "Поддержка");
-        return "support";
-    }
-
 }
 
