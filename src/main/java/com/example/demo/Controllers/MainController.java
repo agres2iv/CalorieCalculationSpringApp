@@ -20,7 +20,6 @@ public class MainController {
     @GetMapping("/") // Для обработки главной страницы указываем просто "/"
     public String home(Model model) {
         model.addAttribute("tittle", "Главная страница");
-        model.addAttribute("second", "Вторая страница");
         return "home"; // "HTML шаблон - при переходе на главную страницу будет вызываться именно он"
     }
 

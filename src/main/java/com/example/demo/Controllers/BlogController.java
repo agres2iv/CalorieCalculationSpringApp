@@ -17,7 +17,6 @@ public class BlogController {
 
     @GetMapping("/blog")
     public String blogMain(Model model) {
-
         Iterable<Energy> energies = energyRepository.findAll();
         model.addAttribute("energies", energies);
         return "blog-main";

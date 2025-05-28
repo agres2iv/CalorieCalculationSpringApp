@@ -13,7 +13,6 @@ import java.util.List;
 @Controller
 public class JournalController {
 
-
     @Autowired
     private JournalService journalService;
 
@@ -21,6 +20,7 @@ public class JournalController {
     public String showJournal(Model model) {
         List<Journal> allJournals = journalService.getAllJournals();
         model.addAttribute("allJournals", allJournals);
+        model.addAttribute("journal","Журнал");
         return "journal";
 
     }
