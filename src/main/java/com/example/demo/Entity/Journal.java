@@ -2,12 +2,13 @@ package com.example.demo.Entity;
 
 
 import jakarta.persistence.*;
+import lombok.Data;
 
-
+@Data
 @Entity
 public class Journal {
 
-@Id
+    @Id
     private int id;
     private String date;
     @ManyToOne
@@ -24,59 +25,4 @@ public class Journal {
     @JoinColumn(name = "user_id")
     private Users user;
 
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public String getDate() {
-        return date;
-    }
-
-    public void setDate(String date) {
-        this.date = date;
-    }
-
-    public Ingestion getIngestion() {
-        return ingestion;
-    }
-
-    public void setIngestion(Ingestion ingestion) {
-        this.ingestion = ingestion;
-    }
-
-    public Product getProduct() {
-        return product;
-    }
-
-    public void setProduct(Product product) {
-        this.product = product;
-    }
-
-    public double getQuantity() {
-        return quantity;
-    }
-
-    public void setQuantity(double quantity) {
-        this.quantity = quantity;
-    }
-
-    public Portion getPortion() {
-        return portion;
-    }
-
-    public void setPortion(Portion portion) {
-        this.portion = portion;
-    }
-
-    public Users getUser() {
-        return user;
-    }
-
-    public void setUser(Users user) {
-        this.user = user;
-    }
 }

@@ -5,7 +5,9 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import lombok.Data;
 
+@Data
 @Entity
 
 public class Ingestion {
@@ -14,20 +16,4 @@ public class Ingestion {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
     private String ingestionName;
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public String getIngestionName() {
-        return ingestionName;
-    }
-
-    public void setIngestionName(String ingestionName) {
-        this.ingestionName = ingestionName;
-    }
 }

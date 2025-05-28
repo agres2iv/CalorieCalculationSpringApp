@@ -1,39 +1,18 @@
 package com.example.demo.Entity;
 
+import jakarta.persistence.*;
+import lombok.Data;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-
+@Data
+@Entity
 
 public class Food {
 
+    @Id
     private int id;
     private String name;
+    @ManyToOne
+    @JoinColumn(name = "energy_id")
     private Energy energy;
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public Energy getEnergy() {
-        return energy;
-    }
-
-    public void setEnergy(Energy energy) {
-        this.energy = energy;
-    }
 }
+
