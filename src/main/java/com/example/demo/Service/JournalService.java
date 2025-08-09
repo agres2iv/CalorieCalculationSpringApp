@@ -14,7 +14,6 @@ public class JournalService {
     private JournalRepository journalRepository;
     public List<Journal> getAllJournals() {
         return journalRepository.findAll();
-
     }
 
 }

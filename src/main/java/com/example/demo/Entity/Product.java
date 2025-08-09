@@ -9,11 +9,23 @@ import lombok.Data;
 @Data
 @Entity
 public class Product {
+
     @Id
     private int id;
     private String productName;
-    @ManyToOne
-    @JoinColumn(name = "energy_id")
-    private Energy energy;
+    private Double Kcal;
+    private String productCommentary;
 
+//    @ManyToOne
+//    @JoinColumn(name = "energy_id")
+//    private Energy energy;
+
+    public Product() {
+    }
+
+    public Product(String productName, Double kcal, String productCommentary) {
+        this.productName = productName;
+        Kcal = kcal;
+        this.productCommentary = productCommentary;
+    }
 }

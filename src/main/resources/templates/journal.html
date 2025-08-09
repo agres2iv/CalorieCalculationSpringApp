@@ -6,6 +6,13 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 </head>
 <body>
+<div th:each="el : ${journalProducts}" class = "alert alert-info mt-2">
+  <h3 th:text="${el.getName()}"/>
+  <h3 th:text="${el.getDescription()}"/>
+  <a th:href="'/journal' + ${el.id}">Детальнее</a>
+
+
+</div>
 <header th:insert="blocks/header.html :: header"></header>
 <a class="p-2 text-dark" href="journal/product-add">Добавить продукт в список</a>
 <p th:text="|Привет пузач, ${second}!|"/>

@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 public class ProductAddController {
 
-
+    //Сама страница с кнопкой
     @GetMapping("journal/product-add")
     public String addJournal(Model model) {
         return "add-product";
