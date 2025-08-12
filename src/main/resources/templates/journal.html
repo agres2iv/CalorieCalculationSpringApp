@@ -6,9 +6,9 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 </head>
 <body>
-<div th:each="el : ${journalProducts}" class = "alert alert-info mt-2">
-  <h3 th:text="${el.getName()}"/>
-  <h3 th:text="${el.getDescription()}"/>
+<div th:each="el : ${productMain}" class = "alert alert-info mt-2">
+  <h3 th:text="${el.getProductName()}"/>
+  <h3 th:text="${el.getProductCommentary()}"/>
   <a th:href="'/journal' + ${el.id}">Детальнее</a>
 
 

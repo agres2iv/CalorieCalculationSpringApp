@@ -1,5 +1,7 @@
 package com.example.demo.Controllers;
 
+import com.example.demo.Entity.Energy;
+import com.example.demo.Entity.Journal;
 import com.example.demo.Entity.Product;
 import com.example.demo.repo.JournalRepository;
 import com.example.demo.repo.ProductRepository;
@@ -8,7 +10,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-    @Controller
+import java.util.List;
+
+@Controller
     public class ProductController {
 
         @Autowired
@@ -20,11 +24,13 @@ import org.springframework.web.bind.annotation.*;
             this.journalRepository = journalRepository;
         }
 
+    @GetMapping("/journal")
+    public String productMain(Model model) {
+        Iterable<Product> products = productRepository.findAll();
+        model.addAttribute("productMain", products);
+        return "/journal";
+    }
 
-        @GetMapping("/add-product")
-        public String showAddProductForm() {
-            return "add-product"; // название HTML файла в templates
-        }
 
         @PostMapping("/add-product")
         public String addProduct(@RequestParam String title, Double Kcal, String Commentary,  Model model) {
@@ -35,5 +41,6 @@ import org.springframework.web.bind.annotation.*;
     }
 
 //TODO Доделать добавление
+//TODO Скорректировать БД и пересоздать ее
 //TODO Сделать удаление
 //TODO Создать кнопку на отмену добавления нового продукта, путем редиректа в журнал

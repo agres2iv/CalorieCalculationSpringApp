@@ -9,6 +9,7 @@ import lombok.Data;
 public class Food {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
     private String name;
     @ManyToOne

@@ -16,13 +16,13 @@ public class JournalController {
     @Autowired
     private JournalService journalService;
 
-    @GetMapping("/journal")
-    public String showJournal(Model model) {
-        List<Journal> allJournals = journalService.getAllJournals();
-        model.addAttribute("allJournals", allJournals);
-        model.addAttribute("journal","Журнал");
-        return "journal";
-
-    }
+//    @GetMapping("/journal")
+//    public String showJournal(Model model) {
+//        List<Journal> allJournals = journalService.getAllJournals();
+//        model.addAttribute("allJournals", allJournals);
+//        model.addAttribute("journal","Журнал");
+//        return "journal";
+//
+//    }
 
 }
