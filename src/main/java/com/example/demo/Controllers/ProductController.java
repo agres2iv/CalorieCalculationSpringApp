@@ -46,6 +46,36 @@ import java.util.Optional;
             model.addAttribute("productD", res);
             return "product-details";
         }
+
+    @GetMapping("/journal/{id}/edit")
+    public String productEdit(@PathVariable(value = "id") Long id, Model model) {
+        if(!productRepository.existsById(id)) {
+            return "redirect:/journal";
+        }
+        Optional<Product> product = productRepository.findById(id);
+        ArrayList<Product> res = new ArrayList<>();
+        product.ifPresent(res::add);
+        model.addAttribute("productD", res);
+        return "product-edit";
+    }
+
+    @PostMapping("/journal/{id}/edit")
+    public String productUpdate(@PathVariable(value = "id") Long id, @RequestParam String title, Double Kcal, String Commentary,  Model model) {
+        Product product = productRepository.findById(id).orElseThrow();
+        product.setProductName(title);
+        product.setKcal(Kcal);
+        product.setProductCommentary(Commentary);
+        productRepository.save(product);
+        return "redirect:/journal";
+    }
+
+    @PostMapping("/journal/{id}/remove")
+    public String productDelete(@PathVariable(value = "id") Long id,  Model model) {
+        Product product = productRepository.findById(id).orElseThrow();
+        productRepository.delete(product);
+        return "redirect:/journal";
+    }
+
     }
 
 

@@ -24,7 +24,7 @@ public class Product {
 
     public Product(String productName, Double kcal, String productCommentary) {
         this.productName = productName;
-        Kcal = kcal;
+        this.Kcal = kcal;
         this.productCommentary = productCommentary;
     }
 

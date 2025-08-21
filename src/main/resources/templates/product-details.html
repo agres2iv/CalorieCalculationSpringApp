@@ -11,8 +11,9 @@
     <h1 th:text="${el.getProductName()}"/>
     <h3 th:text="${el.getProductCommentary()}"/>
     <a th:href="@{/journal/{id}/edit(id=${el.id})}" class="btn btn-warning">Редактировать</a>
-    <a th:href="@{/journal/{id}/remove(id=${el.id})}" class="btn btn-danger">Удалить</a>
+    <form th:action="@{/journal/{id}/remove(id=${el.id})}" method="post">
+        <button class="btn btn-danger" type="submit">Удалить</button>
+    </form>
 </div>
-<p th:text="|Привет пузач, ${second}!|"/>
 </body>
 </html>
