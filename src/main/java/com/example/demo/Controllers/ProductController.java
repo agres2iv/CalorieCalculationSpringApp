@@ -11,6 +11,9 @@ import org.springframework.web.bind.annotation.*;
 import java.util.ArrayList;
 import java.util.Optional;
 
+/**
+ * TODO Для форматирования использовать reformatCode
+ */
 @Controller
     public class ProductController {
 
@@ -23,6 +26,7 @@ import java.util.Optional;
             this.journalRepository = journalRepository;
         }
 
+    //TODO Исправить путь на /product
     @GetMapping("/journal")
     public String productMain(Model model) {
         Iterable<Product> products = productRepository.findAll();
@@ -30,7 +34,7 @@ import java.util.Optional;
         return "/journal";
     }
 
-
+    //TODO Исправить путь на product/add
         @PostMapping("/add-product")
         public String addProduct(@RequestParam String title, Double Kcal, String Commentary,  Model model) {
             Product product = new Product(title, Kcal, Commentary);
@@ -38,27 +42,30 @@ import java.util.Optional;
             return "redirect:/journal";
         }
 
+    //TODO Исправить путь на product/{id}
         @GetMapping("/journal/{id}")
     public String productDetails(@PathVariable(value = "id") Long id, Model model) {
             Optional<Product> product = productRepository.findById(id);
-            ArrayList<Product> res = new ArrayList<>();
+            ArrayList<Product> res = new ArrayList<>(); //Зачем коллекция?
             product.ifPresent(res::add);
             model.addAttribute("productD", res);
             return "product-details";
         }
 
+    //TODO Исправить путь на product/{id}/edit
     @GetMapping("/journal/{id}/edit")
     public String productEdit(@PathVariable(value = "id") Long id, Model model) {
         if(!productRepository.existsById(id)) {
             return "redirect:/journal";
         }
         Optional<Product> product = productRepository.findById(id);
-        ArrayList<Product> res = new ArrayList<>();
+        ArrayList<Product> res = new ArrayList<>(); //Зачем коллекция?
         product.ifPresent(res::add);
         model.addAttribute("productD", res);
         return "product-edit";
     }
 
+    //TODO Исправить путь на product/{id}/edit
     @PostMapping("/journal/{id}/edit")
     public String productUpdate(@PathVariable(value = "id") Long id, @RequestParam String title, Double Kcal, String Commentary,  Model model) {
         Product product = productRepository.findById(id).orElseThrow();
@@ -69,6 +76,7 @@ import java.util.Optional;
         return "redirect:/journal";
     }
 
+    //TODO Исправить путь на product/{id}/remove
     @PostMapping("/journal/{id}/remove")
     public String productDelete(@PathVariable(value = "id") Long id,  Model model) {
         Product product = productRepository.findById(id).orElseThrow();
@@ -78,6 +86,6 @@ import java.util.Optional;
 
     }
 
-
+//TODO Писать заметки вверху класса
 //TODO Сделать удаление
 //TODO Создать кнопку на отмену добавления нового продукта, путем редиректа в журнал
