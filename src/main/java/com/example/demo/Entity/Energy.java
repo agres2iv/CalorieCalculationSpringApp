@@ -14,7 +14,7 @@ public class Energy {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    private double protein;
+    private Double protein;
     private double fat;
     private double carbs;
     private double fibers;

@@ -11,20 +11,18 @@ public class Product {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String productName;
-    private Double Kcal;
     private String productCommentary;
 
-//    @ManyToOne
-//    @JoinColumn(name = "energy_id")
-//    private Energy energy;
+    @ManyToOne
+    @JoinColumn(name = "energy_id")
+    private Energy energy;
 
     public Product() {
     }
 
 
-    public Product(String productName, Double kcal, String productCommentary) {
+    public Product(String productName, String productCommentary) {
         this.productName = productName;
-        this.Kcal = kcal;
         this.productCommentary = productCommentary;
     }
 
@@ -44,13 +42,6 @@ public class Product {
         this.productName = productName;
     }
 
-    public Double getKcal() {
-        return Kcal;
-    }
-
-    public void setKcal(Double kcal) {
-        Kcal = kcal;
-    }
 
     public String getProductCommentary() {
         return productCommentary;
