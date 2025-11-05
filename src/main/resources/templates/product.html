@@ -1,0 +1,41 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title th:text="${Журнал}"></title>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type"/>
+</head>
+<body>
+
+<h1>Журнал добавленных продуктов</h1>
+<table>
+
+    <tr>
+        <th>Название</th>
+        <th>Протеин</th>
+        <th>Углеводы</th>
+        <th>Жиры</th>
+        <th>Калории</th>
+    </tr>
+
+    <tr th:each="el : ${productMain}">
+        <td th:text="${el.getProductName()}">Имя</td>
+        <td th:text="${el.getEnergy().protein}">Протеин</td>
+        <td th:text="${el.getEnergy().carbs}">Углеводы</td>
+        <td th:text="${el.getEnergy().fat}">Жиры</td>
+
+    </tr>
+</table>
+
+<div class="alert alert-info mt-2" th:each="el : ${productMain}">
+    <h3 th:text="${el.productName}">h</h3>
+    <h3 th:text="${el.productCommentary}"></h3>
+    <a class="btn btn-warning" th:href="@{/product/{id}(id=${el.id})}">Детальнее</a>
+</div>
+
+
+<header th:insert="blocks/header.html :: header"></header>
+<a class="p-2 text-dark" href="journal/product-add">Добавить продукт в список</a>
+<p th:text="|Привет пузач, ${second}!|"/>
+</body>
+</html>

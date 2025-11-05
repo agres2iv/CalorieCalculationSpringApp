@@ -3,15 +3,31 @@
 
 <head>
     <title th:text="${Подробнее}"/>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type"/>
 </head>
 <header th:insert="blocks/header.html :: header"></header>
 <body>
-<div th:each="el : ${productD}" class = "alert alert-info mt-2">
-    <h1 th:text="${el.getProductName()}"/>
-    <h3 th:text="${el.getProductCommentary()}"/>
-    <a th:href="@{/journal/{id}/edit(id=${el.id})}" class="btn btn-warning">Редактировать</a>
-    <form th:action="@{/journal/{id}/remove(id=${el.id})}" method="post">
+<div class="alert alert-info mt-2" th:each="el : ${productD}">
+    <table>
+
+        <tr>
+            <th>Название</th>
+            <th>Протеин</th>
+            <th>Углеводы</th>
+            <th>Жиры</th>
+            <th>Калории</th>
+        </tr>
+
+        <tr th:each="el : ${productMain}">
+            <td th:text="${el.getProductName()}">Имя</td>
+            <td th:text="${el.getEnergy().protein}">Протеин</td>
+            <td th:text="${el.getEnergy().carbs}">Углеводы</td>
+            <td th:text="${el.getEnergy().fat}">Жиры</td>
+
+        </tr>
+    </table>
+    <a class="btn btn-warning" th:href="@{/product/{id}/edit(id=${el.id})}">Редактировать</a>
+    <form method="post" th:action="@{/product/{id}/remove(id=${el.id})}">
         <button class="btn btn-danger" type="submit">Удалить</button>
     </form>
 </div>

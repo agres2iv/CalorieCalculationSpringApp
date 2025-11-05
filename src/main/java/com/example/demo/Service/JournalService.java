@@ -12,6 +12,7 @@ public class JournalService {
 
     @Autowired
     private JournalRepository journalRepository;
+
     public List<Journal> getAllJournals() {
         return journalRepository.findAll();
     }

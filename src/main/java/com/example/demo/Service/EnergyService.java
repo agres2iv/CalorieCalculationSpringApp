@@ -11,10 +11,10 @@ public class EnergyService {
     @Autowired
     private EnergyRepository energyRepository;
 
-    public Energy createEnergy(Double protein) {
+    public Energy createEnergy(Double protein, Double carbs, Double fat) {
         Energy energy = new Energy();
         energy.setProtein(protein);
-        energy.setCalories(protein * 4);
+        energy.setCalories((protein + carbs) * 4 + (fat * 9));
         return energyRepository.save(energy);
 
     }
